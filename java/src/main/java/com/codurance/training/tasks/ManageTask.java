@@ -2,15 +2,11 @@ package com.codurance.training.tasks;
 
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
-import com.codurance.training.tasks.Task;
-import com.codurance.training.tasks.TaskList;
-
-public class AddTask implements AddService{
+public class ManageTask implements ManageService {
     private long lastId = 0;
     @Override
-    public void CRUD(String commandLine, PrintWriter out) {
+    public void manage(String commandLine, PrintWriter out) {
         String[] subcommandRest = commandLine.split(" ", 2);
         String[] projectTask = subcommandRest[1].split(" ", 2);
         String project = projectTask[0];

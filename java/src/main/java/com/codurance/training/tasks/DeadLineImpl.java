@@ -8,9 +8,9 @@ import java.util.Map;
 
 import static com.codurance.training.tasks.TaskList.tasks;
 
-public class DeadLineImpl implements AddService{
+public class DeadLineImpl implements ManageService {
     @Override
-    public void CRUD(String commandLine, PrintWriter out) {
+    public void manage(String commandLine, PrintWriter out) {
         String [] commandLineSplit = commandLine.split(" ");
         int taskId = Integer.parseInt(commandLineSplit[0]);
         String deadlineString = commandLineSplit[1];

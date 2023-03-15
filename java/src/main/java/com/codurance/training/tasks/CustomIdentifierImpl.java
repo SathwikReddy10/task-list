@@ -6,9 +6,9 @@ import java.util.Map;
 
 import static com.codurance.training.tasks.TaskList.tasks;
 
-public class CustomIdentifierImpl implements AddService{
+public class CustomIdentifierImpl implements ManageService {
     @Override
-    public void CRUD(String commandLine, PrintWriter out) {
+    public void manage(String commandLine, PrintWriter out) {
         String [] commandLineSplit = commandLine.split(" ",2);
         int taskId = Integer.parseInt(commandLineSplit[0]);
         String customid = commandLineSplit[1];

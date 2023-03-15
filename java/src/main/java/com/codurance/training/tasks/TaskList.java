@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,15 +17,15 @@ public final class TaskList implements Runnable {
 
     public static long lastId = 0;
 
-    public AddService addTask = new AddTask();
-    public AddService addProject = new addProject();
+    public ManageService addTask = new ManageTask();
+    public ManageService addProject = new ManageProject();
     public CommandService errorCommand = new CommandServiceImpl();
     public HelpService help = new HelpServiceImpl();
     public CheckService check = new CheckServiceImpl();
     public ShowService showSer = new ShowServiceImpl();
-    public AddService addDeadline = new DeadLineImpl();
-    public AddService customId = new CustomIdentifierImpl();
-    public AddService deleteImpl = new DeleteImpl();
+    public ManageService addDeadline = new DeadLineImpl();
+    public ManageService customId = new CustomIdentifierImpl();
+    public ManageService deleteImpl = new DeleteImpl();
     public ShowByDateService showByDeadLine = new ShowByDeadLine();
     public ShowByDateService showByDateCreated = new ShowByCreatedDate();
     public ShowByProjectService showByProjectId = new ShowByProjectId();
@@ -71,9 +70,9 @@ public final class TaskList implements Runnable {
                 String[] subcommandRest = commandLine.split(" ", 2);
                 String subcommand = subcommandRest[0];
                 if (subcommand.equals("project")) {
-                    addProject.CRUD(commandRest[1],out);
+                    addProject.manage(commandRest[1],out);
                 } else if (subcommand.equals("task")) {
-                    addTask.CRUD(commandRest[1],out);
+                    addTask.manage(commandRest[1],out);
                 }
                 break;
             case "check":
@@ -86,13 +85,13 @@ public final class TaskList implements Runnable {
                 help.userHelp(out);
                 break;
             case "deadline" :
-                addDeadline.CRUD(commandRest[1],out);
+                addDeadline.manage(commandRest[1],out);
                 break;
             case "customid":
-                customId.CRUD(commandRest[1],out);
+                customId.manage(commandRest[1],out);
                 break;
             case "delete":
-                deleteImpl.CRUD(commandRest[1],out);
+                deleteImpl.manage(commandRest[1],out);
                 break;
             case "viewby" :
                 subcommandRest = commandRest[1].split(" ", 2);

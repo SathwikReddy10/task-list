@@ -6,9 +6,9 @@ import java.util.List;
 
 import static com.codurance.training.tasks.TaskList.tasks;
 
-public class DeleteImpl implements AddService{
+public class DeleteImpl implements ManageService {
     @Override
-    public void CRUD(String id, PrintWriter out) {
+    public void manage(String id, PrintWriter out) {
             for (List<Task> taskList : tasks.values()) {
                 Iterator<Task> iterator = taskList.iterator();
                 while (iterator.hasNext()) {
